@@ -1,9 +1,6 @@
 import { navigateToHomepage } from "./navigateToHomepage.js";
 
 export const options = {
-    // K6 bills in VUh 
-    // (Maximum number of VUs x test execution duration in minutes) / 60 minutes = VUh
-    // E.g (10 VUs x 5 mins)/60 = 0.83 VUh
     cloud: {
       // Project: She Grows Veg
       projectID: 3750602,
@@ -25,7 +22,7 @@ export const options = {
           executor: 'ramping-vus',
           startVUs: 0,
           stages: [
-            { target: 1, duration: '30s' },
+            { target: 10, duration: '30s' },
             { target: 5, duration: '30s' },
             { target: 1, duration: '30s' },
           ],
@@ -39,8 +36,8 @@ export const options = {
   globalThis.vars = [];
   
   // global min/max sleep durations (in seconds):
-  globalThis.pauseMin = 2;
-  globalThis.pauseMax = 5;
+  globalThis.pauseMin = 1;
+  globalThis.pauseMax = 3;
   
   
   
