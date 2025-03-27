@@ -1,7 +1,4 @@
-import { navigateHomepage } from "./navigateHomepage.js";
-
-
-
+import { navigateToHomepage } from "./navigateToHomepage.js";
 
 export const options = {
     // K6 bills in VUh 
@@ -49,7 +46,7 @@ export const options = {
   
   export function main() {
     // Executes requests defined in navigateHomepage()
-    navigateHomepage();
+    navigateToHomepage();
     // Executes requests defined in addToCart()
     // addToCart();
     // // Executes requests defined in navigateToCart()
