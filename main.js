@@ -5,7 +5,7 @@ export const options = {
       // Project: She Grows Veg
       projectID: 3750602,
       // Test runs with the same name groups test runs together.
-      name: 'Load Testing of SheGrowsVeg Staging: https://shegrowsvegstg.wpenginepowered.com/',
+      name: 'Load Testing of https://shegrowsvegstg.wpenginepowered.com/',
       // Adding Load Zone so that traffic routes from amazon:gb:london over the default location
       distribution: {
         AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
@@ -22,14 +22,14 @@ export const options = {
           executor: 'ramping-vus',
           startVUs: 0,
           stages: [
-            { target: 5, duration: '30s' },
-            { target: 5, duration: '1m' },
-            { target: 10, duration: '30s' },
-            { target: 10, duration: '1m' },
-            { target: 15, duration: '30s' },
-            { target: 15, duration: '1m' },
-            { target: 20, duration: '30s' },
-            { target: 20, duration: '1m' },
+            { target: 2500, duration: '15s' }, // ramp-up to 2500 VUs
+            { target: 2500, duration: '30s' }, // hold at 2500 VUs
+            { target: 5000, duration: '15s' },
+            { target: 5000, duration: '30s' },
+            { target: 7500, duration: '15s' },
+            { target: 7500, duration: '30s' },
+            { target: 10000, duration: '15s' },
+            { target: 10000, duration: '30s' },
           ],
           gracefulRampDown: '30s',
           exec: 'main',
@@ -41,8 +41,8 @@ export const options = {
   globalThis.vars = [];
   
   // global min/max sleep durations (in seconds):
-  globalThis.pauseMin = 1;
-  globalThis.pauseMax = 3;
+  globalThis.pauseMin = 0.5;
+  globalThis.pauseMax = 2;
   
   
   
