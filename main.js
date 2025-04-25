@@ -5,7 +5,7 @@ export const options = {
       // Project: She Grows Veg
       projectID: 3750602,
       // Test runs with the same name groups test runs together.
-      name: 'Load Testing of https://shegrowsveg.com/',
+      name: 'Load Testing of SheGrowsVeg Staging: https://shegrowsvegstg.wpenginepowered.com/',
       // Adding Load Zone so that traffic routes from amazon:gb:london over the default location
       distribution: {
         AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
@@ -22,9 +22,14 @@ export const options = {
           executor: 'ramping-vus',
           startVUs: 0,
           stages: [
-            { target: 10, duration: '30s' },
             { target: 5, duration: '30s' },
-            { target: 1, duration: '30s' },
+            { target: 5, duration: '1m' },
+            { target: 10, duration: '30s' },
+            { target: 10, duration: '1m' },
+            { target: 15, duration: '30s' },
+            { target: 15, duration: '1m' },
+            { target: 20, duration: '30s' },
+            { target: 20, duration: '1m' },
           ],
           gracefulRampDown: '30s',
           exec: 'main',
