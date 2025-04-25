@@ -13,7 +13,9 @@ export const options = {
       // Adding thresholds for error rates and request duration  
       thresholds: {
         http_req_failed: ['rate<0.01'], // http errors should be less than 1%
-     // http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
+      //http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
+        abortOnFail: true,
+        delayAbortEval: '1m',
       }
       
     },
@@ -24,12 +26,12 @@ export const options = {
           stages: [
             { target: 2500, duration: '15s' }, // ramp-up to 2500 VUs
             { target: 2500, duration: '30s' }, // hold at 2500 VUs
-            { target: 5000, duration: '15s' },
-            { target: 5000, duration: '30s' },
-            { target: 7500, duration: '15s' },
-            { target: 7500, duration: '30s' },
-            { target: 10000, duration: '15s' },
-            { target: 10000, duration: '30s' },
+            { target: 5000, duration: '15s' }, // ramp-up to 5000 VUs
+            { target: 5000, duration: '30s' }, // hold at 5000 VUs
+            { target: 7500, duration: '15s' }, // ramp-up to 7500 VUs
+            { target: 7500, duration: '30s' }, // hold at 7500 VUs
+            { target: 10000, duration: '15s' }, // ramp-up to 10000 VUs
+            { target: 10000, duration: '30s' }, // hold at 10000 VUs
           ],
           gracefulRampDown: '30s',
           exec: 'main',
