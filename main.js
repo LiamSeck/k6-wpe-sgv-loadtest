@@ -12,10 +12,8 @@ export const options = {
       },
       // Adding thresholds for error rates and request duration  
       thresholds: {
-        http_req_failed: ['rate<0.01'], // http errors should be less than 1%
-      //http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
-        abortOnFail: true,
-        delayAbortEval: '1m',
+        http_req_failed: [{ threshold: 'rate<0.01', abortOnFail: true, delayAbortEval: '1s'}], // http errors should be less than 1%
+        //http_req_duration: [{ threshold: 'p(95)<200', abortOnFail: true, delayAbortEval: '10s'}], // 95% of requests should be below 200ms 
       }
       
     },
