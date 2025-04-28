@@ -1,1 +1,1 @@
-export const base_url = __ENV.HOSTNAME || 'shegrowsvegstg.wpenginepowered.com';
+export const base_url = __ENV.HOSTNAME || 'staging.shegrowsveg.com';
