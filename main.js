@@ -11,10 +11,11 @@ export const options = {
         AWSLondon: { loadZone: 'amazon:gb:london', percent: 100 },
       },
       // Adding thresholds for error rates and request duration  
-    thresholds: { http_req_failed: [{ threshold: 'rate<=0.01', abortOnFail: true, delayAbortEval: '60s'}], // http errors should be less than 1%, test should fail and abort if error rate is higher that 1%
+    thresholds: { 
+      checks: [{threshold: 'rate>0.95', abortOnFail: true, delayAbortEval: '60s'}],// the rate of successful checks should be higher than 95%, test should fail and abort if check fail rate is lower than 95%
+      http_req_failed: [{ threshold: 'rate<=0.01', abortOnFail: true, delayAbortEval: '60s'}], // http errors should be less than 1%, test should fail and abort if error rate is higher that 1%
       //http_req_duration: [{ threshold: 'p(95)<200', abortOnFail: true, delayAbortEval: '60s'}], // 95% of requests should be below 200ms 
-      }
-      
+      },
     },
     scenarios: {
         main: {
