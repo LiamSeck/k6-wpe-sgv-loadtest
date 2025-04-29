@@ -22,8 +22,8 @@ export const options = {
           executor: 'ramping-vus',
           startVUs: 0,
           stages: [
-            { target: 2500, duration: '15m' }, // ramp-up to 2500 VUs
-            { target: 2500, duration: '30s' }, // hold at 2500 VUs
+            // { target: 2500, duration: '15m' }, // ramp-up to 2500 VUs
+            // { target: 2500, duration: '30s' }, // hold at 2500 VUs
             { target: 5000, duration: '15s' }, // ramp-up to 5000 VUs
             { target: 5000, duration: '30s' }, // hold at 5000 VUs
             { target: 7500, duration: '15s' }, // ramp-up to 7500 VUs
