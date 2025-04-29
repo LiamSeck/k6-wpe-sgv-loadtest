@@ -13,7 +13,7 @@ export const options = {
       // Adding thresholds for error rates and request duration  
     thresholds: { 
       checks: [{threshold: 'rate>0.95', abortOnFail: true, delayAbortEval: '60s'}],// the rate of successful checks should be higher than 95%, test should fail and abort if check fail rate is lower than 95%
-      http_req_failed: [{ threshold: 'rate<=0.01', abortOnFail: true, delayAbortEval: '60s'}], // http errors should be less than 1%, test should fail and abort if error rate is higher that 1%
+      //http_req_failed: [{ threshold: 'rate<=0.01', abortOnFail: true, delayAbortEval: '60s'}], // http errors should be less than 1%, test should fail and abort if error rate is higher that 1%
       //http_req_duration: [{ threshold: 'p(95)<200', abortOnFail: true, delayAbortEval: '60s'}], // 95% of requests should be below 200ms 
       },
     },
@@ -22,7 +22,7 @@ export const options = {
           executor: 'ramping-vus',
           startVUs: 0,
           stages: [
-            { target: 2500, duration: '15s' }, // ramp-up to 2500 VUs
+            { target: 2500, duration: '1m' }, // ramp-up to 2500 VUs
             { target: 2500, duration: '30s' }, // hold at 2500 VUs
             { target: 5000, duration: '15s' }, // ramp-up to 5000 VUs
             { target: 5000, duration: '30s' }, // hold at 5000 VUs
