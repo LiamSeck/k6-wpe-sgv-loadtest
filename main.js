@@ -41,8 +41,8 @@ export const options = {
   globalThis.vars = [];
   
   // global min/max sleep durations (in seconds):
-  globalThis.pauseMin = 0.5;
-  globalThis.pauseMax = 2;
+  globalThis.pauseMin = 2;
+  globalThis.pauseMax = 5;
   
   
   
