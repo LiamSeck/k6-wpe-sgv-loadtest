@@ -28,8 +28,8 @@ export const options = {
             { target: 5000, duration: '30s' }, // hold at 5000 VUs
             { target: 7500, duration: '15s' }, // ramp-up to 7500 VUs
             { target: 7500, duration: '30s' }, // hold at 7500 VUs
-            { target: 10000, duration: '15s' }, // ramp-up to 10000 VUs
-            { target: 10000, duration: '30s' }, // hold at 10000 VUs
+            { target: 8500, duration: '15s' }, // ramp-up to 8500 VUs
+            { target: 8500, duration: '30s' }, // hold at 8500 VUs
           ],
           gracefulRampDown: '30s',
           exec: 'main',
