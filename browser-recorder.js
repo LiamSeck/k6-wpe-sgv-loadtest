@@ -49,7 +49,7 @@ export const options = {
 
   // global min/max sleep durations (in seconds):
   globalThis.pauseMin = 2;
-  globalThis.pauseMax = 10;
+  globalThis.pauseMax = 6;
 
 export function scenario_1() {
   let response
