@@ -21,8 +21,25 @@ export const options = {
       startVUs: 0,
       gracefulStop: '30s',
       stages: [
-        { target: 1, duration: '10s' },
-        { target: 1, duration: '1m' },
+        // Ramps are defined assuming 1% 3% & 4% conversion/purchase rate:
+        //              0.01	0.03	0.04
+        // 5000VU       50      150	    200
+        // 7500VU	    75	    225	    300
+        // 8500VU	    85	    255	    340 
+        { target: 50, duration: '30s' },
+        { target: 50, duration: '1m' },
+        { target: 100, duration: '30s' },
+        { target: 100, duration: '1m' },
+        { target: 150, duration: '30s' },
+        { target: 150, duration: '1m' },
+        { target: 200, duration: '30s' },
+        { target: 200, duration: '1m' },
+        { target: 250, duration: '30s' },
+        { target: 250, duration: '1m' },
+        { target: 300, duration: '30s' },
+        { target: 300, duration: '1m' },
+        { target: 350, duration: '30s' },
+        { target: 350, duration: '1m' },
       ],
       gracefulRampDown: '30s',
       exec: 'scenario_1',
